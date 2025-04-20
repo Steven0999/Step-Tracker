@@ -178,16 +178,18 @@ function drawChart() {
 }
 
 function initTabs() {
-  const tabs = document.querySelectorAll(".tab-button");
+  const select = document.getElementById("infoSelect");
   const panels = document.querySelectorAll(".tab-panel");
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
-      tab.classList.add("active");
-      const target = tab.dataset.target;
-      panels.forEach(panel => {
-        panel.style.display = panel.id === target ? "block" : "none";
-      });
+
+  select.addEventListener("change", () => {
+    const target = select.value;
+    panels.forEach(panel => {
+      panel.style.display = panel.id === target ? "block" : "none";
     });
+  });
+
+  // Initialize default view
+  panels.forEach(panel => {
+    panel.style.display = panel.id === select.value ? "block" : "none";
   });
 }

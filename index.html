@@ -3,7 +3,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Step Tracker</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -15,13 +15,18 @@
       <input type="checkbox" id="darkModeToggle" />
     </label>
 
-    <div class="tabs">
-      <button class="tab-button active" data-target="stepsTab">Steps</button>
-      <button class="tab-button" data-target="caloriesTab">Calories</button>
-      <button class="tab-button" data-target="distanceTab">Distance</button>
-      <button class="tab-button" data-target="timeTab">Time</button>
+    <!-- Dropdown selector -->
+    <div class="selector">
+      <label for="infoSelect">View:</label>
+      <select id="infoSelect">
+        <option value="stepsTab">Steps</option>
+        <option value="caloriesTab">Calories</option>
+        <option value="distanceTab">Distance</option>
+        <option value="timeTab">Time</option>
+      </select>
     </div>
 
+    <!-- Info panels -->
     <div class="tab-panel" id="stepsTab">
       <h2>Steps: <span id="stepCount">0</span></h2>
     </div>

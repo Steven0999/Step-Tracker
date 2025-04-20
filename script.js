@@ -37,10 +37,16 @@ function motionHandler(event) {
 }
 
 function updateSteps() {
+  // Always update all values regardless of visible tab
+  const calories = (stepCount * 0.05).toFixed(2);
+  const distance = (stepCount * 0.8 / 1000).toFixed(2);
+  const time = new Date().toLocaleTimeString();
+
   document.getElementById('stepCount').innerText = stepCount;
-  document.getElementById('calories').innerText = (stepCount * 0.05).toFixed(2);
-  document.getElementById('distance').innerText = (stepCount * 0.8 / 1000).toFixed(2);
-  document.getElementById('time').innerText = new Date().toLocaleTimeString();
+  document.getElementById('calories').innerText = calories;
+  document.getElementById('distance').innerText = distance;
+  document.getElementById('time').innerText = time;
+
   updateProgressBar();
   updateMotivation();
   updateBadges();

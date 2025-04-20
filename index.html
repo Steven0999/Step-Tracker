@@ -1,52 +1,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Step Tracker</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <div class="theme-toggle">
+  <div class="container">
+    <h1>Step Tracker</h1>
+
     <label>
-      <input type="checkbox" id="darkModeToggle" /> Dark Mode
+      Dark Mode
+      <input type="checkbox" id="darkModeToggle" />
     </label>
-  </div>
 
-  <h1>Step Tracker</h1>
+    <div class="tabs">
+      <button class="tab-button active" data-target="stepsTab">Steps</button>
+      <button class="tab-button" data-target="caloriesTab">Calories</button>
+      <button class="tab-button" data-target="distanceTab">Distance</button>
+      <button class="tab-button" data-target="timeTab">Time</button>
+    </div>
 
-  <div class="goal-set">
-    Set Goal: 
-    <input type="number" id="goalInput" placeholder="e.g. 1000" />
-    <button onclick="setGoal()">Save</button>
-  </div>
+    <div class="tab-panel" id="stepsTab">
+      <h2>Steps: <span id="stepCount">0</span></h2>
+    </div>
+    <div class="tab-panel" id="caloriesTab" style="display:none">
+      <h2>Calories Burned: <span id="calories">0</span></h2>
+    </div>
+    <div class="tab-panel" id="distanceTab" style="display:none">
+      <h2>Distance: <span id="distance">0</span> km</h2>
+    </div>
+    <div class="tab-panel" id="timeTab" style="display:none">
+      <h2>Time: <span id="time">0</span></h2>
+    </div>
 
-  <div class="goal-info">
-    Daily Goal: <span id="goal">1000</span> steps
-  </div>
+    <div class="goal-settings">
+      <p>Goal: <span id="goal">1000</span> steps</p>
+      <input type="number" id="goalInput" placeholder="Set your step goal" />
+      <button onclick="setGoal()">Set Goal</button>
+    </div>
 
-  <div class="progress-bar">
-    <div class="progress-fill" id="progressFill"></div>
-  </div>
+    <div class="progress">
+      <div id="progressFill"></div>
+    </div>
 
-  <div class="steps" id="stepCount">0</div>
-  <div class="calories-distance">
-    <p>Calories Burned: <span id="calories">0</span> kcal</p>
-    <p>Distance: <span id="distance">0</span> km</p>
-  </div>
-  <div id="motivation"></div>
-  <div id="badges"></div>
+    <div id="motivation"></div>
+    <div id="badges"></div>
 
-  <div class="buttons">
-    <button onclick="startTracking()">Start</button>
-    <button onclick="resetSteps()">Reset</button>
-    <button onclick="exportCSV()">Export CSV</button>
-  </div>
-
-  <div class="history">
     <h3>Step History</h3>
     <ul id="stepHistory"></ul>
-    <canvas id="stepChart" width="400" height="200"></canvas>
+
+    <canvas id="stepChart" width="300" height="200"></canvas>
+
+    <button onclick="exportCSV()">Export CSV</button>
   </div>
 
   <script src="script.js"></script>

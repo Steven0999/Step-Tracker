@@ -43,18 +43,15 @@ button {
   transition: width 0.3s ease;
 }
 
-.tab-button {
-  padding: 8px 16px;
-  border: none;
-  background: #eee;
-  cursor: pointer;
-  margin-right: 5px;
-}
-
-.tab-button.active {
-  background: #ccc;
-}
-
 .tab-panel {
   margin-top: 10px;
+}
+
+.selector {
+  margin: 15px 0;
+}
+
+.selector select {
+  padding: 6px 10px;
+  font-size: 16px;
 }

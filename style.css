@@ -1,15 +1,15 @@
 :root {
   --bg: #f0f0f0;
-  --text: #000;
+  --text: orange;;
   --card: #fff;
-  --accent: #4CAF50;
+  --accent: orange;
 }
 
 body.dark {
   --bg: #121212;
-  --text: #eee;
+  --text: orange;
   --card: #1e1e1e;
-  --accent: #81c784;
+  --accent: orange;
 }
 
 body {
@@ -47,7 +47,7 @@ h1 {
   width: 100%;
   max-width: 400px;
   height: 25px;
-  background: #ccc;
+  background: grey;
   border-radius: 12px;
   margin: 0 auto 20px;
   overflow: hidden;

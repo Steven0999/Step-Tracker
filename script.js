@@ -9,6 +9,9 @@ window.addEventListener('DOMContentLoaded', () => {
   loadSteps();
   document.getElementById('darkModeToggle').addEventListener('change', toggleDarkMode);
   drawChart();
+  initTabs();
+  startTracking();
+  scheduleMidnightReset();
 });
 
 function startTracking() {
@@ -37,6 +40,7 @@ function updateSteps() {
   document.getElementById('stepCount').innerText = stepCount;
   document.getElementById('calories').innerText = (stepCount * 0.05).toFixed(2);
   document.getElementById('distance').innerText = (stepCount * 0.8 / 1000).toFixed(2);
+  document.getElementById('time').innerText = new Date().toLocaleTimeString();
   updateProgressBar();
   updateMotivation();
   updateBadges();
@@ -51,6 +55,15 @@ function resetSteps() {
   updateSteps();
   renderHistory();
   drawChart();
+}
+
+function scheduleMidnightReset() {
+  const now = new Date();
+  const millisUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1).getTime() - now.getTime();
+  setTimeout(() => {
+    resetSteps();
+    scheduleMidnightReset();
+  }, millisUntilMidnight);
 }
 
 function setGoal() {
@@ -162,4 +175,19 @@ function drawChart() {
       }
     }
   });
-    }
+}
+
+function initTabs() {
+  const tabs = document.querySelectorAll(".tab-button");
+  const panels = document.querySelectorAll(".tab-panel");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      const target = tab.dataset.target;
+      panels.forEach(panel => {
+        panel.style.display = panel.id === target ? "block" : "none";
+      });
+    });
+  });
+}

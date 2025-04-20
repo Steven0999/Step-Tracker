@@ -1,121 +1,60 @@
-:root {
-  --bg: #f0f0f0;
-  --text: orange;;
-  --card: orange;;
-  --accent: orange;
-}
-
-body.dark {
-  --bg: #121212;
-  --text: orange;
-  --card: #1e1e1e;
-  --accent: orange;
-}
-
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background: var(--bg);
-  color: var(--text);
-  padding: 40px 20px;
-  transition: background 0.3s, color 0.3s;
+  margin: 0;
+  padding: 20px;
+  background: #f4f4f4;
+  color: #333;
 }
 
-h1 {
-  font-size: 3rem;
+.dark {
+  background: #222;
+  color: #eee;
 }
 
-.theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 1rem;
+.container {
+  max-width: 600px;
+  margin: auto;
 }
 
-.goal-set input {
-  padding: 5px;
+.goal-settings input {
   width: 100px;
-  margin-left: 10px;
+  padding: 5px;
+  margin-right: 10px;
 }
 
-.goal-info {
-  font-size: 1.2rem;
-  margin: 20px 0;
-}
-
-.progress-bar {
-  width: 100%;
-  max-width: 400px;
-  height: 25px;
-  background: grey;
-  border-radius: 12px;
-  margin: 0 auto 20px;
-  overflow: hidden;
-}
-
-.progress-fill {
-  height: 100%;
-  width: 0%;
-  background: var(--accent);
-  transition: width 0.3s ease;
-}
-
-.steps {
-  font-size: 5rem;
-  color: var(--accent);
-  margin: 20px 0;
-}
-
-.calories-distance p {
-  font-size: 1.2rem;
-  margin: 5px;
-}
-
-#motivation {
-  font-weight: bold;
+button {
+  padding: 8px 12px;
   margin-top: 10px;
 }
 
-#badges {
-  margin: 10px 0;
-  font-size: 1.1rem;
-  color: gold;
-}
-
-.buttons button {
-  padding: 10px 20px;
-  font-size: 1.3rem;
-  cursor: pointer;
-  margin: 0 10px;
-  background-color: var(--accent);
-  color: white;
-  border: none;
+.progress {
+  width: 100%;
+  background: #ddd;
+  height: 20px;
+  margin-top: 10px;
   border-radius: 10px;
-  transition: background 0.3s ease;
+  overflow: hidden;
 }
 
-.buttons button:hover {
-  background-color: grey;
+#progressFill {
+  height: 100%;
+  width: 0;
+  background: green;
+  transition: width 0.3s ease;
 }
 
-.history {
-  margin-top: 30px;
-  text-align: left;
+.tab-button {
+  padding: 8px 16px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  margin-right: 5px;
 }
 
-.history h3 {
-  font-size: 1.5rem;
+.tab-button.active {
+  background: #ccc;
 }
 
-.history ul {
-  list-style: none;
-  padding: 0;
-}
-
-.history li {
-  background: var(--card);
-  margin: 5px 0;
-  padding: 8px 12px;
-  border-radius: 6px;
-  box-shadow: 0 0 5px orange);
+.tab-panel {
+  margin-top: 10px;
 }
